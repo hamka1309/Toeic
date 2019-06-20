@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item android:title="Danh Mục">
+            <menu>
+                <item
+                    android:id="@+id/nav_level_1"
+                    android:icon="@drawable/ic_menu_camera"
+                    android:title="Lever 250 - 550" />
+                <item
+                    android:id="@+id/nav_level_2"
+                    android:icon="@drawable/ic_menu_gallery"
+                    android:title="Lever 550 - 750" />
+                <item
+                    android:id="@+id/nav_level_3"
+                    android:icon="@drawable/ic_menu_slideshow"
+                    android:title="Lever 750 - 990" />
+                <item
+                    android:id="@+id/nav_grammar"
+                    android:icon="@drawable/ic_menu_manage"
+                    android:title="Ngữ pháp trong thi toeic's" />
+                <item
+                    android:id="@+id/nav_vocabulary"
+                    android:icon="@drawable/ic_menu_manage"
+                    android:title="600 từ vựng TOEIC's" />
+                <item
+                    android:id="@+id/nav_solution_toiec"
+                    android:icon="@drawable/ic_menu_manage"
+                    android:title="Các giải pháp luyện thi toeic's" />
+
+            </menu>
+        </item>
+    </group>
+    <group android:checkableBehavior="single">
+        <item android:title="Thi thử">
+            <menu>
+                <item
+                    android:id="@+id/nav_mini_test"
+                    android:icon="@drawable/ic_menu_share"
+                    android:title="Mini Test" />
+                <item
+                    android:id="@+id/nav_skill_test"
+                    android:icon="@drawable/ic_menu_send"
+                    android:title="Skill Test" />
+            </menu>
+        </item>
+    </group>
+    <group android:checkableBehavior="single">
+        <item android:title="Khác">
+            <menu>
+                <item
+                    android:id="@+id/nav_experience_toeic"
+                    android:icon="@drawable/ic_menu_share"
+                    android:title="Kinh nghiệm thi toeic" />
+                <item
+                    android:id="@+id/nav_set_up"
+                    android:icon="@drawable/ic_menu_share"
+                    android:title="Cài đặt" />
+                <item
+                    android:id="@+id/nav_support"
+                    android:icon="@drawable/ic_menu_send"
+                    android:title="Hỗ trợ" />
+            </menu>
+        </item>
+    </group>
+
+</menu>
