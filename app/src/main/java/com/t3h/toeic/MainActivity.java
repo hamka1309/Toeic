@@ -1,9 +1,8 @@
 package com.t3h.toeic;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
+
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.MenuItem;
@@ -12,10 +11,17 @@ import android.support.v4.widget.DrawerLayout;
 
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
+
+import com.t3h.toeic.database.DBManager;
+import com.t3h.toeic.model.Part5;
+import com.t3h.toeic.model.WritingPassages;
+import com.t3h.toeic.model.WritingQuestions;
+
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,14 +29,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -38,6 +37,23 @@ public class MainActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
+
+        DBManager dbManager = new DBManager(this);
+
+//        dbManager.addPart5(new Part5("Market analysts are surprised that Xcell\n" +
+//                "Electric's quarterly ------- have been\n" +
+//                "steadily increasing by about 4 percent.","profit450","profitable","profits","profited","profitable","450"));
+//        dbManager.addWritingPassages(new WritingPassages("Q002"
+//                ,"Order your seed catalog now!"
+//                ,"This is the largest and best known seed catalog published today, featuring over 280 pages with 1500 color photographs and including more than 500 varieties.  This book tells you everything you want to know about growing anything from seed and tell you where to get the seeds. Bulbs, vegetables, cacti, potted plants, trees, perennials and annuals-you name it."
+//                ,"6"
+//                ,"250"));
+//        dbManager.addWritingQuestions(new WritingQuestions("Q001","Who will order this catalog?","People who like to grow plants"
+//        ,"People who like to grow plants"
+//        ,"People who sell vegetables"
+//        ,"People who live on farms"
+//        ,"People who sell catalogs","P001"));
+
     }
 
     @Override
@@ -50,27 +66,7 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -79,6 +75,9 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_level_1) {
+            Intent intent = new Intent(this,Part5Activity.class);
+            startActivity(intent);
+
 
         } else if (id == R.id.nav_level_2) {
 
