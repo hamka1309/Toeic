@@ -54,8 +54,6 @@ public class DBQuerys {
              WRITINGQUESTIONCHOICE2  + " TEXT, " +
              WRITINGQUESTIONCHOICE3  + " TEXT, " +
              WRITINGQUESTIONCHOICE4  + " TEXT, " +
-             WRITINGPASSAGESID  + " TEXT not null, " +
-            PART + " TEXT," +
-            LEVEL + " TEXT)";
+             WRITINGPASSAGESID  + " TEXT not null)";
 
 }
