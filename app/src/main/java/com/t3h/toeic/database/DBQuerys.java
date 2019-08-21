@@ -47,7 +47,7 @@ public class DBQuerys {
             LEVEL + " TEXT)";
 
     public static final String sqlWritingQuestions = "CREATE TABLE " + WRITINGQUESTIONS + " (" +
-            WRITINGQUESTIONID + " TEXT primary key, " +
+            WRITINGQUESTIONID + " TEXT , " +
             WRITINGQUESTIONCONTENT + " TEXT, " +
              WRITINGQUESTIONANSWER  + " TEXT, " +
              WRITINGQUESTIONCHOICE1  + " TEXT, " +

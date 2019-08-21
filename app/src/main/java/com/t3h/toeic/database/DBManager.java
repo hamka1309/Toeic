@@ -69,7 +69,7 @@ public class DBManager extends SQLiteOpenHelper {
     public void addWritingQuestions(WritingQuestions writingQuestions) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(DBQuerys.WRITINGQUESTIONID, writingQuestions.getWritingPassageID());
+        values.put(DBQuerys.WRITINGQUESTIONID, writingQuestions.getWritingQuestionID());
         values.put(DBQuerys.WRITINGQUESTIONCONTENT, writingQuestions.getWritingQuestionContent());
         values.put(DBQuerys.WRITINGQUESTIONANSWER, writingQuestions.getWritingQuestionAnswer());
         values.put(DBQuerys.WRITINGQUESTIONCHOICE1, writingQuestions.getWritingQuestionChoice1());
@@ -111,31 +111,41 @@ public class DBManager extends SQLiteOpenHelper {
         return noteList;
     }
 
-    public List<Part6Part7> getPart6Part7(String part, String level) {
+    public List<Part6Part7> getPart6Part7() {
         List<Part6Part7> part6Part7s = new ArrayList<>();
-
-
         String selelctQuery ="SELECT * FROM "+DBQuerys.WRITINGPASSAGES+" AS a JOIN "+DBQuerys.WRITINGQUESTIONS+" AS b ON "+
                 " a."+DBQuerys.WRITINGPASSAGESID+" = b."+DBQuerys.WRITINGPASSAGESID;
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selelctQuery, null);
+
+
+        // Duyệt trên con trỏ, và thêm vào danh sách.
         if (cursor.moveToFirst()) {
             do {
                 Part6Part7 note = new Part6Part7();
-                note.setQuestion(cursor.getString(1));
-//                note.setA(cursor.getString(2));
-//                note.setB(cursor.getString(3));
-//                note.setC(cursor.getString(4));
-//                note.setD(cursor.getString(5));
-//                note.setResult(cursor.getString(6));
-//                note.setLevel(cursor.getString(7));
+
+                note.setWritingPassageID(cursor.getString(0));
+                note.setWritingPassageTitle(cursor.getString(1));
+                note.setWritingPassageContent(cursor.getString(2));
+                note.setLevel(cursor.getString(4));
+                note.setPart(cursor.getString(3));
+                note.setWritingQuestionID(cursor.getString(5));
+                note.setWritingQuestionContent(cursor.getString(6));
+                note.setWritingQuestionAnswer(cursor.getString(7));
+                note.setWritingQuestionChoice1(cursor.getString(8));
+                note.setWritingQuestionChoice2(cursor.getString(9));
+                note.setWritingQuestionChoice3(cursor.getString(10));
+                note.setWritingQuestionChoice4(cursor.getString(11));
+                note.setWritingPassageID(cursor.getString(12));
 
                 // Thêm vào danh sách.
                 part6Part7s.add(note);
             } while (cursor.moveToNext());
         }
-        return null;
+
+
+        return part6Part7s;
     }
 
 }

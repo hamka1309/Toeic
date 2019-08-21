@@ -48,11 +48,57 @@ public class MainActivity extends AppCompatActivity
 //                ,"This is the largest and best known seed catalog published today, featuring over 280 pages with 1500 color photographs and including more than 500 varieties.  This book tells you everything you want to know about growing anything from seed and tell you where to get the seeds. Bulbs, vegetables, cacti, potted plants, trees, perennials and annuals-you name it."
 //                ,"6"
 //                ,"250"));
-//        dbManager.addWritingQuestions(new WritingQuestions("Q001","Who will order this catalog?","People who like to grow plants"
+//        dbManager.addWritingQuestions(new WritingQuestions("P001","Who will order this catalog?","People who like to grow plants"
 //        ,"People who like to grow plants"
 //        ,"People who sell vegetables"
 //        ,"People who live on farms"
-//        ,"People who sell catalogs","P001"));
+//        ,"People who sell catalogs","Q001"));
+//
+//
+//
+//        dbManager.addWritingPassages(new WritingPassages("Q002"
+//                ,"Order your seed catalog now!"
+//                ,"This is the largest and best known seed catalog published today, featuring over 280 pages with 1500 color photographs and including more than 500 varieties.  This book tells you everything you want to know about growing anything from seed and tell you where to get the seeds. Bulbs, vegetables, cacti, potted plants, trees, perennials and annuals-you name it."
+//                ,"6"
+//                ,"250"));
+//        dbManager.addWritingQuestions(new WritingQuestions("P002","Who will order this catalog?","People who like to grow plants"
+//                ,"People who like to grow plants"
+//                ,"People who sell vegetables"
+//                ,"People who live on farms"
+//                ,"People who sell catalogs","Q002"));
+//        dbManager.addWritingQuestions(new WritingQuestions("P003","Who will order this catalog?","People who like to grow plants"
+//                ,"People who like to grow plants"
+//                ,"People who sell vegetables"
+//                ,"People who live on farms"
+//                ,"People who sell catalogs","Q002"));
+//        dbManager.addWritingQuestions(new WritingQuestions("P004","Who will order this catalog?","People who like to grow plants"
+//                ,"People who like to grow plants"
+//                ,"People who sell vegetables"
+//                ,"People who live on farms"
+//                ,"People who sell catalogs","Q002"));
+//        dbManager.addWritingQuestions(new WritingQuestions("P007","Who will order this catalog?","People who like to grow plants"
+//                ,"People who like to grow plants"
+//                ,"People who sell vegetables"
+//                ,"People who live on farms"
+//                ,"People who sell catalogs","Q002"));
+//
+//        dbManager.addWritingPassages(new WritingPassages("Q003"
+//                ,"Order your seed catalog now!"
+//                ,"This is the largest and best known seed catalog published today, featuring over 280 pages with 1500 color photographs and including more than 500 varieties.  This book tells you everything you want to know about growing anything from seed and tell you where to get the seeds. Bulbs, vegetables, cacti, potted plants, trees, perennials and annuals-you name it."
+//                ,"6"
+//                ,"250"));
+//        dbManager.addWritingQuestions(new WritingQuestions("P005","Who will order this catalog?","People who like to grow plants"
+//                ,"People who like to grow plants"
+//                ,"People who sell vegetables"
+//                ,"People who live on farms"
+//                ,"People who sell catalogs","Q003"));
+//
+//        dbManager.addWritingQuestions(new WritingQuestions("P006","Who will order this catalog?","People who like to grow plants"
+//                ,"People who like to grow plants"
+//                ,"People who sell vegetables"
+//                ,"People who live on farms"
+//                ,"People who sell catalogs","Q003"));
+
 
     }
 
@@ -80,6 +126,8 @@ public class MainActivity extends AppCompatActivity
 
 
         } else if (id == R.id.nav_level_2) {
+            Intent intent = new Intent(this,Writing67Activity.class);
+            startActivity(intent);
 
         } else if (id == R.id.nav_level_3) {
 

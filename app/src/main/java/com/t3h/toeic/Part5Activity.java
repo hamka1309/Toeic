@@ -37,11 +37,11 @@ public class Part5Activity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_part5);
         radioGroupChoise = findViewById(R.id.radioGroup_choise);
-        radioButtonA = findViewById(R.id.radioButton_a);
-        radioButtonB = findViewById(R.id.radioButton_b);
-        radioButtonC = findViewById(R.id.radioButton_c);
-        radioButtonD = findViewById(R.id.radioButton_d);
-        tvQuestion = findViewById(R.id.tv_question);
+        radioButtonA = findViewById(R.id.radioButton_part67_a);
+        radioButtonB = findViewById(R.id.radioButton_part67_b);
+        radioButtonC = findViewById(R.id.radioButton_part67_c);
+        radioButtonD = findViewById(R.id.radioButton_part67_d);
+        tvQuestion = findViewById(R.id.tv_item_question);
         tvCheckCorrect = findViewById(R.id.tv_check_correct);
         tvAnswer = findViewById(R.id.tv_answer);
         tvScore=findViewById(R.id.tv_score);
