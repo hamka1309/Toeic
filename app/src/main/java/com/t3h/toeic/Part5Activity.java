@@ -1,5 +1,6 @@
 package com.t3h.toeic;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -26,6 +27,7 @@ public class Part5Activity extends AppCompatActivity implements View.OnClickList
     private TextView tvQuestion,tvScore, tvNumberQuesttion;
     Button btnNext;
     List<Part5> part5s;
+    String part;
 
     private TextView tvCheckCorrect,tvAnswer;
     int numberQuestion =0;
@@ -37,18 +39,21 @@ public class Part5Activity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_part5);
         radioGroupChoise = findViewById(R.id.radioGroup_choise);
-        radioButtonA = findViewById(R.id.radioButton_part67_a);
-        radioButtonB = findViewById(R.id.radioButton_part67_b);
+        radioButtonA = findViewById(R.id.radioButton_part5_a);
+        radioButtonB = findViewById(R.id.radioButton_part5_b);
         radioButtonC = findViewById(R.id.radioButton_part67_c);
         radioButtonD = findViewById(R.id.radioButton_part67_d);
         tvQuestion = findViewById(R.id.tv_item_question);
         tvCheckCorrect = findViewById(R.id.tv_check_correct);
         tvAnswer = findViewById(R.id.tv_answer);
-        tvScore=findViewById(R.id.tv_score);
+        tvScore=findViewById(R.id.tv_score_part67);
         tvNumberQuesttion =findViewById(R.id.tv_number_question);
-        btnNext = findViewById(R.id.btn_next);
+        btnNext = findViewById(R.id.btn_next_part5);
+
+        Intent intent = getIntent();
+        part= intent.getStringExtra(MainActivity.PART550_750);
         DBManager dbManager = new DBManager(this);
-         part5s = dbManager.getPart5Level("250");
+         part5s = dbManager.getPart5Level(part);
         Log.e(TAG, "onCreate: "+part5s.toString() );
         btnNext.setOnClickListener(this);
 
@@ -72,7 +77,7 @@ public class Part5Activity extends AppCompatActivity implements View.OnClickList
     public void onClick(View v) {
         switch (v.getId())
         {
-            case R.id.btn_next:
+            case R.id.btn_next_part5:
                 if(numberQuestion>=part5s.size()-1)
                 {
                     numberQuestion=part5s.size()-1;

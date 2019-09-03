@@ -20,8 +20,8 @@
             </intent-filter>
 
         </activity>
-<activity android:name=".Part5Activity"/>
-        <activity android:name=".Writing67Activity"/>
+        <activity android:name=".Part5Activity" />
+        <activity android:name=".Writing67Activity" />
     </application>
 
 </manifest>

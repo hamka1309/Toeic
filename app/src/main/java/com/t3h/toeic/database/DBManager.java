@@ -14,7 +14,9 @@ import com.t3h.toeic.model.WritingPassages;
 import com.t3h.toeic.model.WritingQuestions;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class DBManager extends SQLiteOpenHelper {
     private Context context;
@@ -110,11 +112,28 @@ public class DBManager extends SQLiteOpenHelper {
         }
         return noteList;
     }
+    public Map<String,String> getIDQuestionConten(String level, String part)
+    {
+        Map<String,String> getList= new HashMap<>();
 
-    public List<Part6Part7> getPart6Part7() {
+        String selelctQuery ="SELECT "+DBQuerys.WRITINGPASSAGESID+", "+DBQuerys.WRITINGPASSAGECONTENT+" FROM "+DBQuerys.WRITINGPASSAGES+
+                " WHERE "+DBQuerys.LEVEL +" LIKE '"+ level +"' AND "+DBQuerys.PART+" LIKE '"+part+"'";
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selelctQuery,null);
+        if(cursor.moveToFirst()){
+            do {
+                getList.put(cursor.getString(0),cursor.getString(1));
+            } while (cursor.moveToNext());
+        }
+        return getList;
+    }
+
+    public List<Part6Part7> getPart6Part7(String passagesId, String part, String level) {
         List<Part6Part7> part6Part7s = new ArrayList<>();
         String selelctQuery ="SELECT * FROM "+DBQuerys.WRITINGPASSAGES+" AS a JOIN "+DBQuerys.WRITINGQUESTIONS+" AS b ON "+
-                " a."+DBQuerys.WRITINGPASSAGESID+" = b."+DBQuerys.WRITINGPASSAGESID;
+                " a."+DBQuerys.WRITINGPASSAGESID+" LIKE b."+DBQuerys.WRITINGPASSAGESID+
+        " WHERE a." + DBQuerys.LEVEL + " LIKE '" + level + "' AND a."+DBQuerys.PART+" LIKE '"+part
+                +"' AND a."+DBQuerys.WRITINGPASSAGESID+" LIKE '"+passagesId+"'";
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selelctQuery, null);
@@ -143,8 +162,6 @@ public class DBManager extends SQLiteOpenHelper {
                 part6Part7s.add(note);
             } while (cursor.moveToNext());
         }
-
-
         return part6Part7s;
     }
 

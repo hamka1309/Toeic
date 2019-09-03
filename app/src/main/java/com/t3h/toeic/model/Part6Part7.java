@@ -8,7 +8,6 @@ public class Part6Part7 {
     private String writingPassageContent;
     private String part;
     private String level;
-
     private String writingQuestionID;
     private String writingQuestionContent;
     private String writingQuestionAnswer;
@@ -129,5 +128,68 @@ public class Part6Part7 {
 
     public void setWritingQuestionChoice4(String writingQuestionChoice4) {
         this.writingQuestionChoice4 = writingQuestionChoice4;
+    }
+
+
+    private String question;
+    private int seleectedAnswerPosition;
+    private boolean op1Sel,op2Sel,op3Sel,op4Sel; // options
+
+    public boolean isOp1Sel() {
+        return op1Sel;
+    }
+
+    public boolean isOp1Se4() {
+        return op1Sel;
+    }
+    public void setOp1Sel(boolean op1Sel) {
+        this.op1Sel = op1Sel;
+        if(op1Sel){ // To make sure only one option is selected at a time
+            setOp2Sel(false);
+            setOp3Sel(false);
+        }
+    }
+
+    public boolean isOp2Sel() {
+        return op2Sel;
+    }
+
+    public void setOp2Sel(boolean op2Sel) {
+        this.op2Sel = op2Sel;
+        if(op2Sel){
+            setOp1Sel(false);
+            setOp3Sel(false);
+        }
+    }
+
+    public boolean isOp3Sel() {
+        return op3Sel;
+    }
+
+    public void setOp3Sel(boolean op3Sel) {
+        this.op3Sel = op3Sel;
+        if(op3Sel){
+            setOp2Sel(false);
+            setOp1Sel(false);
+        }
+    }
+
+    public void setOp4Sel(boolean op4Sel) {
+        this.op4Sel = op4Sel;
+    }
+
+    public int getSeleectedAnswerPosition() {
+        return seleectedAnswerPosition;
+    }
+
+    public void setSeleectedAnswerPosition(int seleectedAnswerPosition) {
+        this.seleectedAnswerPosition = seleectedAnswerPosition;
+    }
+
+    public String getQuestion() {
+        return question;
+    }
+    public void setQuestion(String question) {
+        this.question = question;
     }
 }

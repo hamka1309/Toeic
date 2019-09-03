@@ -16,15 +16,15 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:layout_marginTop="20dp"
-            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:text="Score" />
+            android:layout_marginTop="20dp"
+            android:text="Score"
+            android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/tv_score"
+            android:id="@+id/tv_score_part67"
             android:layout_marginTop="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -54,8 +54,6 @@
             android:layout_marginLeft="10dp"
             android:text="230" />
     </LinearLayout>
-
-
 
     <TextView
         android:id="@+id/tv_answer"
@@ -109,14 +107,14 @@
             android:orientation="vertical">
 
             <RadioButton
-                android:id="@+id/radioButton_part67_a"
+                android:id="@+id/radioButton_part5_a"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="false"
                 android:text="Easy" />
 
             <RadioButton
-                android:id="@+id/radioButton_part67_b"
+                android:id="@+id/radioButton_part5_b"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Medium" />
@@ -137,7 +135,7 @@
         </RadioGroup>
 
         <Button
-            android:id="@+id/btn_next"
+            android:id="@+id/btn_next_part5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
